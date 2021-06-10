@@ -1,10 +1,9 @@
 <?php
 
-namespace Database\Seeders;
-
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Artisan;
 
-class DatabaseSeeder extends Seeder
+class CustomerSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,6 +12,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call('UsersTableSeeder');
+        Artisan::call('migrate:import-customers');
     }
 }

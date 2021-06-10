@@ -1,7 +1,5 @@
 <?php
 
-/** @var \Laravel\Lumen\Routing\Router $router */
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -13,6 +11,15 @@
 |
 */
 
+use Laravel\Lumen\Routing\Router;
+
+/**
+ * @var Router $router
+ */
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->get('/customers', 'Customer\CustomerController@index');
+$router->post('/customers', 'Customer\CustomerController@store');
+$router->get('/customers/{customer}', 'Customer\CustomerController@show');
